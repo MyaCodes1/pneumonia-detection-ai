@@ -3,8 +3,9 @@ name: Python Lint
 on: [push, pull_request]
 
 jobs:
-  lint:
-    runs-on: ubuntu-latest
+- name: Lint notebook
+  run: nbqa flake8 *.ipynb --max-line-length=150 --ignore=E402, F401, F811, E265,E501,E111,E114,E116,E126,E128,E202,E211,E221,E225,E226,E231,E251,E261,E262,W291,W293,W391,E302,E303
+
     steps:
       - uses: actions/checkout@v4
       - name: Set up Python
